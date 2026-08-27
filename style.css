@@ -1,0 +1,79 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+/* Class selector */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+}
+
+/* Element selector */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Class selector */
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* ID selector */
+#add-expense {
+    background-color: #ffffff;
+}
+
+/* Class selector */
+.expense-section,
+.expenses-section {
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Element selector */
+h2 {
+    margin-top: 0;
+}
+
+/* Class selector */
+.input-group {
+    margin-bottom: 18px;
+}
+
+/* Element selectors */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+/* ID selector */
+#your-expenses {
+    background-color: #eef5ff;
+}
+
+/* Class selector */
+.placeholder {
+    color: #777;
+    font-style: italic;
+}
