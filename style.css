@@ -14,6 +14,12 @@ body {
     padding: 30px;
 }
 
+/* Logo image */
+.logo {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
 /* Element selector */
 h1 {
     text-align: center;
@@ -27,6 +33,20 @@ h1 {
     margin-bottom: 30px;
 }
 
+/* Collapsible "how to use" section */
+.how-to {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.how-to summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 /* ID selector */
 #add-expense {
     background-color: #ffffff;
@@ -34,11 +54,13 @@ h1 {
 
 /* Class selector */
 .expense-section,
-.expenses-section {
+.expenses-section,
+.media-section {
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
 }
 
 /* Element selector */
@@ -58,13 +80,92 @@ label {
     font-weight: bold;
 }
 
-input {
+input,
+select {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 15px;
+}
+
+/* --- Advanced CSS selectors (Part A, task 5) --- */
+
+/* 1. Direct child selector: only the <form> that is a direct child of
+   .expense-section gets this top border, not deeply nested elements */
+.expense-section > form {
+    border-top: 3px solid #4a90e2;
+    padding-top: 15px;
+}
+
+/* 2. Descendant selector: any <td> inside .expenses-section, no matter
+   how deeply nested, gets this padding and text color */
+.expenses-section td {
+    padding: 10px 12px;
+    color: #333;
+}
+
+/* 3. Pseudo-class based on position: every even table row gets a
+   light background so rows are easy to scan */
+tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+/* 4. Negation pseudo-class: every input that is NOT type="number"
+   gets a slightly different left border to set text fields apart */
+input:not([type="number"]) {
+    border-left: 3px solid #4a90e2;
+}
+
+/* 5. Focus state: inputs and the select get a visible highlight
+   when the user is actively typing/choosing */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.25);
+}
+
+/* Table base styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+th {
+    text-align: left;
+    padding: 10px 12px;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+}
+
+/* Hover style on table rows */
+tbody tr:hover {
+    background-color: #eaf2fd;
+}
+
+/* Add Expense button */
+button {
+    background-color: #4a90e2;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a7bc8;
 }
 
 /* ID selector */
@@ -76,4 +177,9 @@ input {
 .placeholder {
     color: #777;
     font-style: italic;
+}
+
+/* Media section (iframe) */
+.media-section iframe {
+    border-radius: 8px;
 }
