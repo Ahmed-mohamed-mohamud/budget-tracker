@@ -1,121 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger — Budget Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <main class="container">
+  <div class="page">
 
-        <img src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png"
-             alt="Budget tracker wallet icon"
-             width="60"
-             class="logo">
+    <!-- Page heading card -->
+    <header class="card hero-card">
+      <p class="eyebrow">Personal Finance / Monthly Ledger</p>
+      <h1 class="hero-title">Budget Tracker</h1>
+      <p class="hero-sub">Every entry, tallied. Know exactly where your money goes.</p>
 
-        <h1>My Budget Tracker</h1>
-        <p class="subtitle">Track your income and expenses in one place.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-label">Total Spent</span>
+          <span class="stat-value mono">$1,284.50</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">This Month</span>
+          <span class="stat-value mono">4 categories</span>
+        </div>
+      </div>
+    </header>
 
-        <details class="how-to">
-            <summary>How to use this tracker</summary>
-            <p>
-                Fill in the expense name, amount, and pick a category from the
-                dropdown, then click "Add Expense" to save it. Every expense
-                you add will appear in the table below under "Your Expenses".
-            </p>
-        </details>
+    <!-- Add Expense form card -->
+    <section class="card form-card">
+      <div class="card-heading">
+        <span class="card-index">01</span>
+        <h2>Add an Expense</h2>
+      </div>
 
-        <section id="add-expense" class="expense-section">
-            <h2>Add Expense</h2>
+      <form class="expense-form">
+        <div class="field">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" placeholder="e.g. Groceries at Naivas" />
+        </div>
 
-            <form>
-                <div class="input-group">
-                    <label for="expense-name">Expense Name</label>
-                    <input type="text" id="expense-name" placeholder="Enter expense name">
-                </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="food">Food &amp; Groceries</option>
+            <option value="transport">Transport</option>
+            <option value="housing">Housing</option>
+            <option value="utilities">Utilities</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-                <div class="input-group">
-                    <label for="expense-amount">Amount</label>
-                    <input type="number" id="expense-amount" placeholder="Enter amount">
-                </div>
+        <div class="field">
+          <label for="amount">Amount (USD)</label>
+          <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" />
+        </div>
 
-                <div class="input-group">
-                    <label for="expense-category">Category</label>
-                    <select id="expense-category">
-                        <option value="food">Food</option>
-                        <option value="transport">Transport</option>
-                        <option value="rent">Rent</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" />
+        </div>
 
-                <button type="button" id="add-expense-btn">Add Expense</button>
-            </form>
-        </section>
+        <button type="submit" class="btn-primary">Add Expense</button>
+      </form>
+    </section>
 
-        <section id="your-expenses" class="expenses-section">
-            <h2>Your Expenses</h2>
+    <!-- Expense table card -->
+    <section class="card table-card">
+      <div class="card-heading">
+        <span class="card-index">02</span>
+        <h2>Expense Ledger</h2>
+      </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Groceries</td>
-                        <td>$45.00</td>
-                        <td>Food</td>
-                        <td>2026-08-01</td>
-                    </tr>
-                    <tr>
-                        <td>Bus Pass</td>
-                        <td>$20.00</td>
-                        <td>Transport</td>
-                        <td>2026-08-03</td>
-                    </tr>
-                    <tr>
-                        <td>Monthly Rent</td>
-                        <td>$450.00</td>
-                        <td>Rent</td>
-                        <td>2026-08-05</td>
-                    </tr>
-                    <tr>
-                        <td>Movie Night</td>
-                        <td>$15.00</td>
-                        <td>Entertainment</td>
-                        <td>2026-08-10</td>
-                    </tr>
-                    <tr>
-                        <td>Phone Charger</td>
-                        <td>$12.50</td>
-                        <td>Other</td>
-                        <td>2026-08-12</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+      <div class="table-wrap">
+        <table class="expense-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Category</th>
+              <th class="align-right">Amount</th>
+              <th>Date</th>
+              <th class="align-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Groceries at Naivas</td>
+              <td><span class="tag tag-food">Food</span></td>
+              <td class="align-right mono">$42.30</td>
+              <td class="mono">Aug 03</td>
+              <td class="align-center"><button class="btn-ghost">Delete</button></td>
+            </tr>
+            <tr>
+              <td>Matatu fare</td>
+              <td><span class="tag tag-transport">Transport</span></td>
+              <td class="align-right mono">$5.00</td>
+              <td class="mono">Aug 05</td>
+              <td class="align-center"><button class="btn-ghost">Delete</button></td>
+            </tr>
+            <tr>
+              <td>Rent — August</td>
+              <td><span class="tag tag-housing">Housing</span></td>
+              <td class="align-right mono">$650.00</td>
+              <td class="mono">Aug 01</td>
+              <td class="align-center"><button class="btn-ghost">Delete</button></td>
+            </tr>
+            <tr>
+              <td>Electricity bill</td>
+              <td><span class="tag tag-utilities">Utilities</span></td>
+              <td class="align-right mono">$28.00</td>
+              <td class="mono">Aug 12</td>
+              <td class="align-center"><button class="btn-ghost">Delete</button></td>
+            </tr>
+            <tr>
+              <td>Phone airtime</td>
+              <td><span class="tag tag-other">Other</span></td>
+              <td class="align-right mono">$10.00</td>
+              <td class="mono">Aug 14</td>
+              <td class="align-center"><button class="btn-ghost">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-        <section class="media-section">
-            <h2>Budgeting Tip Video</h2>
-            <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/VwAveTwf_po"
-                title="How to budget better (3 easy budget strategies)"
-                frameborder="0"
-                allowfullscreen>
-            </iframe>
-        </section>
+    <footer class="footer">
+      <p>Budget Tracker — built as a Week 3 visual design project.</p>
+    </footer>
 
-    </main>
+  </div>
 
 </body>
 </html>

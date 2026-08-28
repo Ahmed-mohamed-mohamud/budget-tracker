@@ -1,52 +1,46 @@
-# Budget Tracker
+# Budget Tracker — Visual Identity
 
-A simple web page for tracking personal income and expenses, built with
-plain HTML and CSS as part of a week-by-week coding assignment.
+A CSS-only visual redesign of the Budget Tracker built in previous weeks. No new HTML structure or functionality was added — this pass focuses entirely on color, typography, table/form styling, and the CSS box model.
 
-## What I built
+## What was built
 
-- **Logo/header** — a small wallet icon (`<img>`) next to the page title.
-- **Collapsible help section** — a `<details>`/`<summary>` block titled
-  "How to use this tracker" that explains how the form works.
-- **Add Expense form** — a `<form>` with a text input for the expense
-  name, a number input for the amount, and a `<select>` dropdown for
-  category (Food, Transport, Rent, Entertainment, Other). Every input
-  has a unique `id` (`expense-name`, `expense-amount`,
-  `expense-category`) so a future JavaScript version can read them
-  easily. The "Add Expense" button doesn't do anything yet — that
-  functionality is planned for a later week.
-- **Expense table** — a proper `<table>` with `<thead>`/`<tbody>`,
-  column headers for Name, Amount, Category, and Date, and five
-  hardcoded sample rows.
-- **Budgeting tip video** — an embedded YouTube video via `<iframe>`.
+- **`index.html`** — the page structure: a hero heading, an "Add Expense" form, and an expense ledger table, each wrapped as a distinct visual card.
+- **`style.css`** — all visual styling: palette, fonts, spacing, borders, and component styling.
+- **`README.md`** — this file.
 
-## What each part does
+## Design choices
 
-| Section | Purpose |
+**Concept:** a physical ledger / passbook, reimagined for the screen — deep forest-green ink, a gold rule for emphasis, and monospaced figures so amounts line up the way they would in a real ledger book.
+
+**Color palette**
+| Role | Color |
 |---|---|
-| `index.html` | Page structure and content |
-| `style.css` | All visual styling, including the table, form, hover effects, and advanced selectors |
+| Page / card background | `#F4F2EA` paper, `#FFFFFF` card |
+| Primary ink / headings | `#17342A`, `#123A29` |
+| Accent (buttons, table header) | `#1F5C43` forest green |
+| Highlight (stats, index numbers) | `#C9A648` gold |
+| Delete / negative action | `#B4483A` rust |
+| Borders | `#DCE4DA` hairline |
 
-## Advanced CSS selectors used
+Applied consistently across the page background, headings, buttons, table headers, and alternating row tints.
 
-- **Direct child selector** — `.expense-section > form` styles only the
-  form that is a direct child of the expense section.
-- **Descendant selector** — `.expenses-section td` styles every table
-  cell inside the expenses section, however deeply nested.
-- **Position-based pseudo-class** — `tbody tr:nth-child(even)` shades
-  every other table row for readability.
-- **Negation pseudo-class** — `input:not([type="number"])` gives text
-  inputs a different left border than number inputs.
-- **Focus state** — `input:focus, select:focus` highlights whichever
-  field the user is currently interacting with.
+**Typography**
+- **Fraunces** (serif, display) — page title and card headings, for an editorial/ledger feel.
+- **Inter** (sans-serif, body/UI) — labels, form fields, table text, buttons.
+- **IBM Plex Mono** — all monetary figures and dates, so numbers align like a real ledger.
 
-## Interactive touches
+**Table & form styling**
+- Table header uses a solid forest-green band with white uppercase text.
+- Alternating row backgrounds for scanability.
+- Category tags use small color-coded pills.
+- Form inputs share consistent padding, border-radius, and a green focus outline.
+- Buttons: solid green primary action, outlined rust "Delete" action with hover fill.
 
-- Table rows change background color on hover.
-- The "Add Expense" button shows a pointer cursor on hover.
-- The "How to use this tracker" section can be expanded or collapsed.
+**CSS Box Model**
+- Every major section (hero, form, table) is its own `.card`: consistent `padding`, `border`, `border-radius`, and `margin`/`gap` spacing between cards.
+- `border-collapse` keeps table borders clean; cell `padding` gives the ledger room to breathe.
+- A `card-heading` uses `padding-bottom` + `border-bottom` to visually separate the heading from its content.
 
-## Next steps
+## How to view it
 
-Future weeks will add JavaScript so the "Add Expense" button actually
-adds new rows to the table using the values from the form.
+Open `index.html` directly in a browser — no build step or dependencies beyond the Google Fonts CDN link already included in the `<head>`.

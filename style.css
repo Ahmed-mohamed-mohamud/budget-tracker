@@ -1,185 +1,299 @@
-/* Basic page styling */
+/* ==========================================================================
+   Budget Tracker — Visual Identity
+   Palette:  #F4F2EA paper · #17342A ink-green · #1F5C43 forest ·
+             #C9A648 gold-ledger · #B4483A rust · #DCE4DA hairline
+   Type:     Fraunces (display) · Inter (body/UI) · IBM Plex Mono (figures)
+   ========================================================================== */
+
+:root {
+  --paper: #F4F2EA;
+  --paper-raised: #FFFFFF;
+  --ink: #17342A;
+  --ink-soft: #4B5F55;
+  --forest: #1F5C43;
+  --forest-deep: #123A29;
+  --gold: #C9A648;
+  --rust: #B4483A;
+  --hairline: #DCE4DA;
+  --row-alt: #EEF2EA;
+
+  --radius-lg: 18px;
+  --radius-sm: 8px;
+  --space-xs: 8px;
+  --space-sm: 14px;
+  --space-md: 24px;
+  --space-lg: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #222;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
 }
 
-/* Class selector */
-.container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
 }
 
-/* Logo image */
-.logo {
-    display: block;
-    margin: 0 auto 10px auto;
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) 64px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
-/* Element selector */
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
+/* ---------- Card shell: the box model in action ---------- */
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin: 0;
+  box-shadow: 0 1px 2px rgba(23, 52, 42, 0.04);
 }
 
-/* Class selector */
-.subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
+.card-heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--hairline);
 }
 
-/* Collapsible "how to use" section */
-.how-to {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.card-index {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 2px 9px;
 }
 
-.how-to summary {
-    cursor: pointer;
-    font-weight: bold;
+.card-heading h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0;
+  color: var(--forest-deep);
 }
 
-/* ID selector */
-#add-expense {
-    background-color: #ffffff;
+/* ---------- Hero card ---------- */
+.hero-card {
+  background: var(--forest-deep);
+  border-color: var(--forest-deep);
+  color: var(--paper);
+  padding: var(--space-lg);
 }
 
-/* Class selector */
-.expense-section,
-.expenses-section,
-.media-section {
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    background-color: #ffffff;
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin: 0 0 var(--space-xs);
 }
 
-/* Element selector */
-h2 {
-    margin-top: 0;
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.05;
+  margin: 0 0 var(--space-xs);
 }
 
-/* Class selector */
-.input-group {
-    margin-bottom: 18px;
+.hero-sub {
+  color: #C9D6CD;
+  margin: 0 0 var(--space-md);
+  font-size: 16px;
+  max-width: 46ch;
 }
 
-/* Element selectors */
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
+.hero-stats {
+  display: flex;
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(244, 242, 234, 0.15);
 }
 
-input,
-select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* --- Advanced CSS selectors (Part A, task 5) --- */
-
-/* 1. Direct child selector: only the <form> that is a direct child of
-   .expense-section gets this top border, not deeply nested elements */
-.expense-section > form {
-    border-top: 3px solid #4a90e2;
-    padding-top: 15px;
+.stat-label {
+  font-size: 12px;
+  color: #9FB3A7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-/* 2. Descendant selector: any <td> inside .expenses-section, no matter
-   how deeply nested, gets this padding and text color */
-.expenses-section td {
-    padding: 10px 12px;
-    color: #333;
+.stat-value {
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 600;
 }
 
-/* 3. Pseudo-class based on position: every even table row gets a
-   light background so rows are easy to scan */
-tbody tr:nth-child(even) {
-    background-color: #f9fbfd;
+/* ---------- Form card ---------- */
+.expense-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md) var(--space-md);
 }
 
-/* 4. Negation pseudo-class: every input that is NOT type="number"
-   gets a slightly different left border to set text fields apart */
-input:not([type="number"]) {
-    border-left: 3px solid #4a90e2;
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* 5. Focus state: inputs and the select get a visible highlight
-   when the user is actively typing/choosing */
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.25);
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
 }
 
-/* Table base styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
+.field input,
+.field select {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 11px 13px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
 }
 
-thead {
-    background-color: #4a90e2;
-    color: #ffffff;
+.field input:focus,
+.field select:focus {
+  outline: 2px solid var(--forest);
+  outline-offset: 1px;
+  border-color: var(--forest);
 }
 
-th {
-    text-align: left;
-    padding: 10px 12px;
+.btn-primary {
+  grid-column: 1 / -1;
+  justify-self: start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--paper);
+  background: var(--forest);
+  border: 1px solid var(--forest);
+  border-radius: var(--radius-sm);
+  padding: 12px 26px;
+  margin-top: var(--space-xs);
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
 
-td,
-th {
-    border: 1px solid #ddd;
+.btn-primary:hover {
+  background: var(--forest-deep);
 }
 
-/* Hover style on table rows */
-tbody tr:hover {
-    background-color: #eaf2fd;
+/* ---------- Table card ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
 }
 
-/* Add Expense button */
-button {
-    background-color: #4a90e2;
-    color: #ffffff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
 }
 
-button:hover {
-    background-color: #3a7bc8;
+.expense-table thead th {
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paper);
+  background: var(--forest);
+  padding: 13px 16px;
 }
 
-/* ID selector */
-#your-expenses {
-    background-color: #eef5ff;
+.expense-table tbody td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--hairline);
 }
 
-/* Class selector */
-.placeholder {
-    color: #777;
-    font-style: italic;
+.expense-table tbody tr:nth-child(even) {
+  background: var(--row-alt);
 }
 
-/* Media section (iframe) */
-.media-section iframe {
-    border-radius: 8px;
+.expense-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+/* Category tags */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.tag-food     { background: #EAF3E9; color: var(--forest);  border-color: #C7E0C4; }
+.tag-transport{ background: #FBF3E1; color: #8C6D1F;        border-color: #EBD7A0; }
+.tag-housing  { background: #E9EEF3; color: #2E5170;        border-color: #C6D6E4; }
+.tag-utilities{ background: #F3E9EC; color: #8C3A52;        border-color: #E4C6D0; }
+.tag-other    { background: #EFEFEF; color: var(--ink-soft);border-color: #DADADA; }
+
+.btn-ghost {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rust);
+  background: transparent;
+  border: 1px solid var(--rust);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--rust);
+  color: var(--paper);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-top: var(--space-sm);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .hero-title { font-size: 32px; }
+  .expense-form { grid-template-columns: 1fr; }
+  .card { padding: var(--space-md); }
+  .hero-stats { flex-direction: column; gap: var(--space-sm); }
 }
